@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivitiesControlleur;
+use App\Http\Controllers\editeController;
+use App\Http\Controllers\utilisateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,4 @@ Route::get('/', function () {
     return('welcome');
 })->name('connexion');
 Route::resource('/activities', ActivitiesControlleur::class);
+Route::resource('user', utilisateurController::class);

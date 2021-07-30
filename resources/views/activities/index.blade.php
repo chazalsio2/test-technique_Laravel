@@ -16,7 +16,6 @@
                     <th>Id</th>
                     <th>Pseudo</th>
                     <th>Email</th>
-                    <th>Ip</th>
                     <th>Date d'inscription</th>
                     <th>Action</th>
                 </tr>
@@ -27,11 +26,10 @@
                     <td>{{ $utilisateur->id }}</td>
                     <td>{{ $utilisateur->pseudo }}</td>
                     <td>{{ $utilisateur->email }}</td>
-                    <td>{{ $utilisateur->date_inscription }}</td>
+                    <td>{{ $utilisateur->created_at }}</td>
                     <td>
-                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="{{ route('user.edit',$utilisateur->id) }}" class="btn btn-primary" title="Add" data-toggle="tooltip">edite</a>
+                        <a  class="btn btn-danger" title="Add" data-toggle="tooltip">supprimer</a>
                     </td>
                 </tr>      
             
