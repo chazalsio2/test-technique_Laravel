@@ -36,6 +36,28 @@
             @endforeach
         </tbody>
         </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ordinateur</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($computers as $computer)
+                <tr>
+                    <td>{{ $computer->id }}</td>
+                    <td>{{ $computer->label }}</td>
+                    <td>
+                        <a href="{{ route('computers.edit',$computer->id) }}"class="btn btn-primary" title="Add" data-toggle="tooltip">edite</a>
+                        <a  class="btn btn-danger" title="Add" data-toggle="tooltip">supprimer</a>
+                    </td>
+                </tr>      
+            
+            @endforeach
+        </tbody>
+        </table>
+        
     </div>
 </div>
 </div>

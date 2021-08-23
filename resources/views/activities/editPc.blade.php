@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-8"><h2>Modifier <strong></strong></h2></div>                
                 <div class="col-sm-4">
-                    <form action="{{ route('user.update',$utilisateurs->id) }}" method="POST">
+                    <form action="{{ route('computer.update',$computers->id) }}" method="POST">
                         @csrf 
                         @method('PUT')
                    
@@ -14,15 +14,10 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Nom</strong>
-                                    <input type="text" name="pseudo" value="{{ $utilisateurs->pseudo }}" class="form-control" placeholder="Nom">
+                                    <input type="text" name="pseudo" value="{{ $computers->label }}" class="form-control" placeholder="Nom">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>email</strong>
-                                    <input type="text" name="email" value="{{ $utilisateurs->email }}" class="form-control" placeholder="email">
-                                </div>
-                            </div>
+                            
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 
                             </div>

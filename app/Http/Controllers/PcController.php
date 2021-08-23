@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ordinateur;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
+use App\Models\utilisateurModel;
 
-class   utilisateurController extends Controller
+
+class PcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +17,8 @@ class   utilisateurController extends Controller
      */
     public function index()
     {
-        //
-        $utilisateurs = Utilisateur::all();
-        return view('activities.edit' ,compact('utilisateurs'));
-
-
+        $computers = ordinateur::all();
+        return view('activities.index', compact('computers'));
     }
 
     /**
@@ -62,9 +62,8 @@ class   utilisateurController extends Controller
     public function edit($id)
     {
         //
-        $utilisateurs = Utilisateur::findOrfail($id);
-        return view('activities.edit' ,compact('utilisateurs'));
-
+        $computers = ordinateur::findOrfail($id);
+        return view('activities.editPc' ,compact('computers'));
     }
 
     /**
@@ -76,15 +75,13 @@ class   utilisateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $utilisateurs = Utilisateur::findOrFail($id);
+        $computers = ordinateur::findOrFail($id);
         $request->validate([
-            'pseudo' => 'required',
-            'email' => 'required' 
+            'label' => 'required'
         ]);
-        $utilisateurs->update($request->all());
+        $computers->update($request->all());
         return redirect()->route('activities.index')
-                         ->with('messageSuccess','L\'utilisateur a bien était modifier');
+                         ->with('messageSuccess','L\'ordinateur a bien était modifier');
     }
 
     /**
